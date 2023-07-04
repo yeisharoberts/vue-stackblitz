@@ -1,12 +1,8 @@
 <template>
   <div id="app">
     <Navbar msg="Welcome to Your Vue.js App" />
-    <Component
-      v-for="item in array"
-      :name="item.name"
-      :age="item.age"
-      @increaseBy="handleIncrease"
-    />
+    <Component v-for="item in array" :name="item.name" :age="item.age" />
+    <ButtonInc @increaseBy="handleIncrease" btnText="Click Me" />
     <div>{{ count }}</div>
   </div>
 </template>
@@ -14,16 +10,18 @@
 <script>
 import Navbar from './components/Navbar.vue';
 import Component from './components/Component.vue';
+import ButtonInc from './components/ButtonInc.vue';
 
 export default {
   name: 'App',
   components: {
     Navbar,
     Component,
+    ButtonInc,
   },
   methods: {
     handleIncrease(value) {
-      this.count = value;
+      this.count += value;
     },
   },
   data() {

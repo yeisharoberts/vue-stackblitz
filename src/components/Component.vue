@@ -2,7 +2,6 @@
   <div class="parent-component">
     <div class="comp-body">Name: {{ name }} | Age: {{ age }}</div>
   </div>
-  <button type="button" @click="$emit('increaseBy', 1)">Click me</button>
 </template>
 
 <script>
@@ -13,8 +12,8 @@ export default {
       this.$emit('increaseBy', 1);
     },
     handleIncrease(value) {
-      count = value;
-    }
+      count += value;
+    },
   },
   props: {
     name: String,
